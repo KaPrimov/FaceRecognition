@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3'
 
 services: 
   smart-brain-api: 
@@ -33,4 +33,28 @@ services:
     image: redis
     ports:
       - "6379:6379"
-    
+      
+  geth:
+    container_name: geth
+    build: geth
+    command: '--identity kalin --networkid 2017042099 --datadir "/root/.ethereum/devchain" --unlock 0,1 --password /root/.ethereum/devchain/pw --port "30303" --rpc --rpcport "8544" --rpccorsdomain "*" --rpcaddr="0.0.0.0" --rpcapi "admin,db,eth,miner,net,web3,personal,txpool" --nodiscover --minerthreads=2  --etherbase 0'
+    ports:    
+      - "8544:8544"
+      - "30303:30303"
+      - "30303:30303/udp"
+
+  truffle:
+    container_name: truffle
+    build: truffle
+    ports:
+      - "8080:8080"
+      - "7000:8545"
+    entrypoint: sh
+    command: '-c "sleep 1d"'
+
+  # testrpc: # A very simple/light geth, only for testing purpose
+  #   container_name: testrpc
+  #   image: desmart/testrpc:latest
+  #   ports:
+  #     - "8545:8545"
+  

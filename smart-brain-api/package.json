@@ -13,11 +13,13 @@
     "body-parser": "^1.18.2",
     "clarifai": "^2.5.0",
     "cors": "^2.8.4",
+    "ethereumjs-testrpc": "^6.0.3",
     "express": "^4.16.2",
     "jsonwebtoken": "8.3.0",
     "knex": "^0.14.2",
     "pg": "^7.4.0",
-    "redis": "2.8.0"
+    "redis": "2.8.0",
+    "truffle": "5.0.12"
   },
   "devDependencies": {
     "morgan": "^1.9.0",
