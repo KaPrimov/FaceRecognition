@@ -1,4 +1,4 @@
-# Face Recognition Appgi
+# Face Recognition App
 
 ## How To Run It:
 - Go to the frontend and execute __npm start__
