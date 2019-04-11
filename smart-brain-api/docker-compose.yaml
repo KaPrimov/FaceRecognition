@@ -46,15 +46,16 @@ services:
   truffle:
     container_name: truffle
     build: truffle
+    volumes:
+      - ./dapp:/dapp
     ports:
       - "8080:8080"
       - "7000:8545"
     entrypoint: sh
     command: '-c "sleep 1d"'
 
-  # testrpc: # A very simple/light geth, only for testing purpose
-  #   container_name: testrpc
-  #   image: desmart/testrpc:latest
-  #   ports:
-  #     - "8545:8545"
-  
+  testrpc: # A very simple/light geth, only for testing purpose
+    container_name: testrpc
+    image: desmart/testrpc:latest
+    ports:
+      - "8545:8545"
