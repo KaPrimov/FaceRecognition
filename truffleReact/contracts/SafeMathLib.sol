@@ -1,6 +1,6 @@
 pragma solidity >=0.4.25 <0.6.0;
 
-library SafeMath {
+library SafeMathLib {
     function mul(uint256 a, uint256 b) internal pure returns (uint256) {
         if (a == 0) {
             return 0;

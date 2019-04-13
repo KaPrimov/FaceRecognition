@@ -9,7 +9,7 @@ import "./DonationLib.sol";
 contract FaceRecognition is Ownable, Destructible {
     using GameLib for GameLib.Data;
     using DonationLib for DonationLib.Data;
-    using SafeMath for uint;
+    using SafeMathLib for uint;
     
     GameLib.Data gamelibData;
     DonationLib.Data donationLibData;
@@ -77,6 +77,10 @@ contract FaceRecognition is Ownable, Destructible {
     
     function getTotalDonations() public view  onlyEnrolled(msg.sender) returns(uint) {
         return donationLibData.getTotalDonations();
+    }
+
+    function hasDonated() public view returns(bool) {
+        return donationLibData.hasDonated(msg.sender);
     }
     
     function receiveAward() public payable onlyEnrolled(msg.sender) onlyAfterPeriod {
